@@ -1,4 +1,5 @@
 ---
+import Social from "./Social.astro";
 const platFormUserNameMap: string[][] = [
     ["github", "justDabuK"],
     ["instagram", "justdabu"],
@@ -6,9 +7,14 @@ const platFormUserNameMap: string[][] = [
 ]
 ---
 
+<style>
+    footer {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+</style>
+
 <footer>
-    <p>Learn more about my projects on:</p>
-    <ul>
-        {platFormUserNameMap.map((platFormAndUserName) => <li><a href={`https://www.${platFormAndUserName[0]}.com/${platFormAndUserName[1]}`}>{platFormAndUserName[0]}</a></li>)}
-    </ul>
+        {platFormUserNameMap.map((platFormAndUserName) => <Social platform={platFormAndUserName[0]} username={platFormAndUserName[1]} />)}
 </footer>
